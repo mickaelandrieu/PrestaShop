@@ -44,7 +44,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
  * If the event is a RenderingHookEvent, then the final result is
  * an array of contents accessed from $event->getContent().
  */
-class HookDispatcher extends EventDispatcher implements HookDispatcherInterface
+class HookDispatcher implements HookDispatcherInterface
 {
     /**
      * @var array

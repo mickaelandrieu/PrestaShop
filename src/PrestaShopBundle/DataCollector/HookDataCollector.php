@@ -26,6 +26,7 @@
 
 namespace PrestaShopBundle\DataCollector;
 
+use Throwable;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\DataCollector\DataCollector;
@@ -49,7 +50,7 @@ final class HookDataCollector extends DataCollector
     /**
      * {@inheritdoc}
      */
-    public function collect(Request $request, Response $response, \Exception $exception = null)
+    public function collect(Request $request, Response $response, ?Throwable $exception = null)
     {
         $hooks = $this->registry->getHooks();
         $calledHooks = $this->registry->getCalledHooks();
@@ -59,15 +60,6 @@ final class HookDataCollector extends DataCollector
             'calledHooks' => $this->stringifyHookArguments($calledHooks),
             'notCalledHooks' => $this->stringifyHookArguments($notCalledHooks),
         ];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function unserialize($data)
-    {
-        // it seems that php 7.3 has a bug with unserialize: https://bugs.php.net/bug.php?id=77302
-        $this->data = is_array($data) ? $data : @unserialize($data);
     }
 
     /**

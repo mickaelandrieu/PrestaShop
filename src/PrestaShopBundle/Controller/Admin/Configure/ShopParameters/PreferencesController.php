@@ -55,7 +55,7 @@ class PreferencesController extends FrameworkBundleAdminController
     {
         $form = $this->get('prestashop.adapter.preferences.form_handler')->getForm();
 
-        return $this->renderForm($request, $form);
+        return $this->renderFormFromMetaFilters($request, $form);
     }
 
     /**
@@ -100,10 +100,10 @@ class PreferencesController extends FrameworkBundleAdminController
             $this->flashErrors($saveErrors);
         }
 
-        return $this->renderForm($request, $form);
+        return $this->renderFormFromMetaFilters($request, $form);
     }
 
-    private function renderForm(Request $request, FormInterface $form): Response
+    private function renderFormFromMetaFilters(Request $request, FormInterface $form): Response
     {
         /** @var Tools $toolsAdapter */
         $toolsAdapter = $this->get('prestashop.adapter.tools');

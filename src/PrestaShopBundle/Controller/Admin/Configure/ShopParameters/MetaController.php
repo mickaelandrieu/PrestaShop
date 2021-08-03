@@ -71,7 +71,7 @@ class MetaController extends FrameworkBundleAdminController
             $urlSchemaForm = $this->getUrlSchemaFormHandler()->getForm();
         }
 
-        return $this->renderForm($request, $filters, $setUpUrlsForm, $shopUrlsForm, $seoOptionsForm, $urlSchemaForm);
+        return $this->renderFormFromMetaFilters($request, $filters, $setUpUrlsForm, $shopUrlsForm, $seoOptionsForm, $urlSchemaForm);
     }
 
     /**
@@ -257,7 +257,7 @@ class MetaController extends FrameworkBundleAdminController
             $urlSchemaForm = $this->getUrlSchemaFormHandler()->getForm();
         }
 
-        return $this->renderForm($request, $filters, $setUpUrlsForm, $shopUrlsForm, $seoOptionsForm, $urlSchemaForm);
+        return $this->renderFormFromMetaFilters($request, $filters, $setUpUrlsForm, $shopUrlsForm, $seoOptionsForm, $urlSchemaForm);
     }
 
     /**
@@ -285,7 +285,7 @@ class MetaController extends FrameworkBundleAdminController
             $urlSchemaForm = $this->getUrlSchemaFormHandler()->getForm();
         }
 
-        return $this->renderForm($request, $filters, $setUpUrlsForm, $shopUrlsForm, $seoOptionsForm, $urlSchemaForm);
+        return $this->renderFormFromMetaFilters($request, $filters, $setUpUrlsForm, $shopUrlsForm, $seoOptionsForm, $urlSchemaForm);
     }
 
     /**
@@ -309,7 +309,7 @@ class MetaController extends FrameworkBundleAdminController
             'UrlSchema'
         );
 
-        return $this->renderForm($request, $filters, $setUpUrlsForm, $shopUrlsForm, $seoOptionsForm, $urlSchemaForm);
+        return $this->renderFormFromMetaFilters($request, $filters, $setUpUrlsForm, $shopUrlsForm, $seoOptionsForm, $urlSchemaForm);
     }
 
     /**
@@ -337,7 +337,7 @@ class MetaController extends FrameworkBundleAdminController
             $urlSchemaForm = $this->getUrlSchemaFormHandler()->getForm();
         }
 
-        return $this->renderForm($request, $filters, $setUpUrlsForm, $shopUrlsForm, $seoOptionsForm, $urlSchemaForm);
+        return $this->renderFormFromMetaFilters($request, $filters, $setUpUrlsForm, $shopUrlsForm, $seoOptionsForm, $urlSchemaForm);
     }
 
     /**
@@ -389,7 +389,7 @@ class MetaController extends FrameworkBundleAdminController
      *
      * @return Response
      */
-    protected function renderForm(
+    protected function renderFormFromMetaFilters(
         Request $request,
         MetaFilters $filters,
         FormInterface $setUpUrlsForm,

@@ -40,7 +40,7 @@ class LogHandler extends AbstractProcessingHandler
         parent::__construct($level, $bubble);
     }
 
-    protected function write(array $record)
+    protected function write(array $record): void
     {
         $logger = $this->container->get('prestashop.adapter.legacy.logger');
         $logger->log($record['level'], $record['message'], $record['context']);

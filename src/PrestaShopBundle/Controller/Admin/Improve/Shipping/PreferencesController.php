@@ -52,7 +52,7 @@ class PreferencesController extends FrameworkBundleAdminController
         $handlingForm = $this->getHandlingFormHandler()->getForm();
         $carrierOptionsForm = $this->getCarrierOptionsFormHandler()->getForm();
 
-        return $this->renderForm($handlingForm, $carrierOptionsForm, $request);
+        return $this->renderFormFromMetaFilters($handlingForm, $carrierOptionsForm, $request);
     }
 
     /**
@@ -90,7 +90,7 @@ class PreferencesController extends FrameworkBundleAdminController
             $this->flashErrors($saveErrors);
         }
 
-        return $this->renderForm($this->getHandlingFormHandler()->getForm(), $form, $request);
+        return $this->renderFormFromMetaFilters($this->getHandlingFormHandler()->getForm(), $form, $request);
     }
 
     /**
@@ -127,7 +127,7 @@ class PreferencesController extends FrameworkBundleAdminController
             }
         }
 
-        return $this->renderForm($form, $this->getCarrierOptionsFormHandler()->getForm(), $request);
+        return $this->renderFormFromMetaFilters($form, $this->getCarrierOptionsFormHandler()->getForm(), $request);
     }
 
     /**
@@ -153,7 +153,7 @@ class PreferencesController extends FrameworkBundleAdminController
      *
      * @return Response|null
      */
-    protected function renderForm($handlingForm, $carrierOptionsForm, $request)
+    protected function renderFormFromMetaFilters($handlingForm, $carrierOptionsForm, $request)
     {
         $legacyController = $request->attributes->get('_legacy_controller');
 
